@@ -5,7 +5,7 @@ import { ContainerLogin, FormLogin, ContainerInput, ButtonLogin, InfoSignup ,
 import useInput from '../../hooks/useInput'
 import axios from 'axios'
 
-export const baseUrl = ""
+export const baseUrl = "https://labeimage.herokuapp.com/user/"
 
 function PageLogin() {
     const history = useHistory()
@@ -19,7 +19,7 @@ function PageLogin() {
         const token = window.localStorage.getItem("token")
 
         if (token !== null) {
-            history.replace("/feed")
+            history.replace("/createimage")
         }
     }, [])
 
@@ -39,15 +39,14 @@ function PageLogin() {
             password: form.senha
         }
 
-        axios
-        .post(`${baseUrl}login`, body)
+        axios.post(`${baseUrl}/login`, body)
         .then((response) => {
             window.localStorage.setItem("token", response.data.token)
             resetInput()
-            history.replace("/feed")
+            history.replace("/createimage")
         })
         .catch((error) => {
-            alert(error.message)
+            alert(error)
         })
     }
 
@@ -58,7 +57,6 @@ function PageLogin() {
     return (
         <ContainerGeneralPageLogin>
             <ContainerLogin>
-                
                 <FormLogin onSubmit={handleSave}>
                     <h1>Login</h1>
                     <ContainerInput>

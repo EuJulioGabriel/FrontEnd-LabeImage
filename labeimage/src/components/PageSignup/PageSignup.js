@@ -1,10 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import useInput from '../../hooks/useInput'
+import FormPageSignup from './FormPageSignup'
 import { useHistory } from 'react-router-dom'
-import { ContainerPageSignup, ContainerSignUp, FormSignup,
-         ContainerInput, ButtonSignup, TextSignup,
-         ButtonBack, DescriptionPage, InputSignup } from '../PageSignup/StylePageSignup'
 
 const url = "https://labeimage.herokuapp.com/user/"
   
@@ -41,7 +39,8 @@ function PageSignup() {
             password: form.senha,
         }
 
-        axios.post(`${url}/signup`, body)
+        axios
+        .post(`${url}signup`, body)
         .then(response=>{
             history.push("/")
             resetInput()
@@ -53,63 +52,12 @@ function PageSignup() {
     }
 
     return (
-        <ContainerPageSignup>
-            <ButtonBack onClick={goToLogin}>Voltar</ButtonBack>
-            <DescriptionPage>Cadastro</DescriptionPage>
-            <ContainerSignUp>
-                <FormSignup onSubmit={handleSave}>
-                    <ContainerInput>
-                        <TextSignup>Nome</TextSignup>
-                        <InputSignup
-                            onChange={handleInputChange}
-                            name={"nomeUsuario"}
-                            value={form.nomeUsuario} 
-                            placeholder={"Nome do usuário"}
-                            type={"text"} 
-                            required
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TextSignup>Nickname</TextSignup>
-                        <InputSignup
-                            onChange={handleInputChange}
-                            name={"nickname"}
-                            value={form.nickname} 
-                            placeholder={"Nome de cadastro do usuário"}
-                            type={"text"} 
-                            required
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TextSignup>Email</TextSignup>
-                        <InputSignup 
-                            onChange={handleInputChange} 
-                            name={"email"} 
-                            value={form.email} 
-                            placeholder={"Email"} 
-                            type={"email"} 
-                            required
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <TextSignup>Senha</TextSignup>
-                        <InputSignup 
-                            onChange={handleInputChange} 
-                            name={"senha"} 
-                            value={form.senha} 
-                            placeholder={"Senha"} 
-                            type={"password"} 
-                            title="Deve ter no mínimo 6 caracteres"
-                            pattern={"[a-zA-Z0-9]{6,}"}
-                            required
-                        />
-                    </ContainerInput>
-                    <ContainerInput>
-                        <ButtonSignup>Cadastrar</ButtonSignup>
-                    </ContainerInput>
-                </FormSignup>
-            </ContainerSignUp>
-        </ContainerPageSignup>
+        <FormPageSignup
+            goToLogin={goToLogin} 
+            handleSave={handleSave}
+            handleInputChange={handleInputChange}
+            form={form}
+        />        
     )
 }
 

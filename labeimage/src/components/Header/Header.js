@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import styled from "styled-components"
 
-const Cabecalho = styled.header`
+const Head = styled.header`
     background-color: black;
     color: white;
     width: 100%;
@@ -13,7 +13,7 @@ const Cabecalho = styled.header`
     align-items: center;
 `
 
-const BotaoLogout = styled.button`
+const LogoutButton = styled.button`
     background-color: #ff4500;
     width: 5%;
     height: 5vh;
@@ -39,13 +39,13 @@ function Header() {
     }
 
     useEffect(() => {
-        renderizaNaTela()
+        showInScreen()
     }, [pathParams])
 
-    const renderizaNaTela = () => {
+    const showInScreen = () => {
         if (token !== null) {
             return (
-                <BotaoLogout onClick={logout}>Logout</BotaoLogout>
+                <LogoutButton onClick={logout}>Logout</LogoutButton>
             )
         }
     }
@@ -55,10 +55,10 @@ function Header() {
     }
 
     return(
-        <Cabecalho>
+        <Head>
             <Logo onClick={goToFeed}>LabeImage</Logo>
-            {renderizaNaTela()}
-        </Cabecalho>
+            {showInScreen()}
+        </Head>
     )
 }
 

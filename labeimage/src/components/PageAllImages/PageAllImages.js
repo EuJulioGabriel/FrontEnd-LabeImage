@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import ModalImage from '../ModalImage/ModalImage'
 import CardImage from './CardImage'
-
-const url = "https://labeimage.herokuapp.com/image/"
+import { ButtonCreateImage, ContainerPageAllImage } from '../PageAllImages/StylePageAllImages'
 
 function PageAllImages() {
     const [modalImage, setModalImage] = useState(false)
@@ -19,6 +18,10 @@ function PageAllImages() {
         }
         
     }, [history])
+
+    const goToPageCreateImage = () => {
+        history.push("/createimage")
+    }
 
     const openModalImage = (Identificador) => {
         setIdImage(Identificador)
@@ -41,12 +44,13 @@ function PageAllImages() {
     }
 
     return (
-        <div>
+        <ContainerPageAllImage>
+            <ButtonCreateImage onClick={goToPageCreateImage}>Inserir Imagem</ButtonCreateImage>
             {showModalImage()}
-            <CardImage 
+            <CardImage
                 openModalImage={openModalImage}
             />
-        </div>
+        </ContainerPageAllImage>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { ContainerInfo, ContainerAlturaMinimo } from "../PageAllImages/StylePageAllImages"
+import axios from 'axios'
 
 const url = "https://labeimage.herokuapp.com/image/"
 

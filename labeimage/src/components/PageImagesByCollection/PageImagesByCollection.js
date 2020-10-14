@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import ModalImage from '../ModalImage/ModalImage'
-import GetAllImages from './GetAllImages'
+import GetImagesByCollection from './GetImagesByCollection'
 import { ButtonCreateImage, ContainerPageAllImage } from '../PageAllImages/StylePageAllImages'
 
-function PageAllImages() {
+function PageImagesByCollection() {
     const [modalImage, setModalImage] = useState(false)
     const [idImage, setIdImage] = useState("")
     
@@ -47,11 +47,11 @@ function PageAllImages() {
         <ContainerPageAllImage>
             <ButtonCreateImage onClick={goToPageCreateImage}>Inserir Imagem</ButtonCreateImage>
             {showModalImage()}
-            <GetAllImages
+            <GetImagesByCollection
                 openModalImage={openModalImage}
             />
         </ContainerPageAllImage>
     )
 }
 
-export default PageAllImages
+export default PageImagesByCollection

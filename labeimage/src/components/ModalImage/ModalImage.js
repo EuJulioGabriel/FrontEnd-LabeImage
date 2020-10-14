@@ -34,7 +34,6 @@ function ModalImage(props) {
                 <p>Imagem: {image.name}</p>
                 <p>Criado em: {image.createdAt}</p>
                 <p>Tags: {image.tags}</p>
-                <p>Coleção: {image.collection}</p>
             </DateImage>
             <ContainerInfo>
                 <Image src= {image.file}></Image>

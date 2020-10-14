@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import useInput from '../../hooks/useInput'
 import { useHistory } from 'react-router-dom'
-import FormPageCreateImage from './FormPageCreateImage'
 import ModalCreateCollection from '../ModalCreteCollection/ModalCreateCollection';
 
-const url = "https://labeimage.herokuapp.com/image/"
-const urlTwo = "https://labeimage.herokuapp.com/collection/"
+const url = "http://localhost:3003/image/"
   
-function PageSignup() {
+function PageFilter() {
     const { form, onChange, resetInput } = useInput({
-        subtitle: "",
-        file: "",
-        tags: "",
+        date: "",
+        author: "",
         collection: "",
+        tags: ""
     })
 
-    const [collections, setCollections] = useState([])
+    const [images, setImages] = useState([])
     const [modalCreateCollection, setModalCreateCollection] = useState(false)
 
     const history = useHistory()
@@ -27,11 +25,10 @@ function PageSignup() {
         if (token === null) {
             history.push("/")
         }
-        
     }, [history])
 
     useEffect(() => {
-        getAllCollections()
+        getImagesByFilter()
     }, [])
 
     const handleInputChange = event => {
@@ -42,74 +39,36 @@ function PageSignup() {
 
     const handleSave = (event) => {
         event.preventDefault()
-        onClickSignup()
+        getImagesByFilter()
     }
 
     const goToPageAllImages = () => {
         history.push("/image")
     }
 
-    const getAllCollections = () => {
+    const getImagesByFilter = () => {
+        const body = {
+            "date": `${form.date}`,
+            "author": `${form.author}`,
+            "collection": `${form.collection}`,
+            "tags": `${form.tags}`,
+        }
+
         const token = window.localStorage.getItem("token")
 
         axios
-        .get(`${urlTwo}getallcollections`, {
+        .get(`${url}filters`, body, {
             headers:{
                 Authorization: token
             }
         })
         .then((response) => {
-            setCollections(response.data.message)
+            setImages(response.data.message)
         })
         .catch((error)=>{
+            console.log(error)
             alert(error.message)
         })        
-    }
-
-    const addImageToCollection = (idImage, idCollection) => {
-        const body = {
-            idImage: idImage,
-            idCollection: idCollection
-        }
-
-        const token = window.localStorage.getItem("token")
-
-        axios
-        .put(`${urlTwo}addimagetocollection`, body, {
-            headers:{
-                Authorization: token
-            }
-        })
-        .then(() => {
-            history.push("/image")
-            resetInput()
-        })
-        .catch((error)=>{
-            alert(error.message)
-        })  
-    }
-
-    const onClickSignup = () => {
-        const body ={
-            subtitle: form.subtitle,
-            file: form.file,
-            tags: form.tags,
-        }
-
-        const token = window.localStorage.getItem("token")
-
-        axios
-        .post(`${url}createimage`, body, {
-            headers:{
-                Authorization: token
-            }
-        })
-        .then((response) => {
-            addImageToCollection(response.data.message, form.collection)
-        })
-        .catch((error)=>{
-            alert(error.message)
-        })
     }
 
     const openModalCreateCollection = () => {
@@ -133,16 +92,22 @@ function PageSignup() {
     return (
         <div>
             <button onClick={() => openModalCreateCollection()}>Criar álbum</button>
-            <FormPageCreateImage 
+            {images.map((image) => {
+                return(
+                    <div key={image.id}>
+                        {}
+                    </div>
+                )
+            })}
+            {/* <FormPageCreateImage 
                 goToPageAllImages={goToPageAllImages}
                 handleSave={handleSave}
                 handleInputChange={handleInputChange}
                 form={form}
-                collections={collections}
             />
-            {showModalCreateCollection()}
+            {showModalCreateCollection()} */}
         </div>
     )
 }
 
-export default PageSignup
+export default PageFilter

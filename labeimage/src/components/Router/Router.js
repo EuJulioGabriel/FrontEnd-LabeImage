@@ -6,6 +6,9 @@ import PageSignup from '../PageSignup/PageSignup'
 import PageLogin from '../PageLogin/PageLogin'
 import PageCreateImage from '../PageCreateImage/PageCreateImage'
 import PageAllImages from '../PageAllImages/PageAllImages'
+import PageAllCollections from '../PageAllCollections/PageAllCollections'
+import PageImagesByCollections from '../PageImagesByCollection/PageImagesByCollection'
+import PageFilter from '../PageFilters/PageFilter'
 import Footer from '../Footer/Footer'
 
 const Router = () => {
@@ -24,6 +27,15 @@ const Router = () => {
             </Route>
             <Route exact path="/image">
               <PageAllImages />
+            </Route>
+            <Route exact path="/collection">
+              <PageAllCollections />
+            </Route>
+            <Route exact path="/image/collection/:id">
+              <PageImagesByCollections />
+            </Route>
+            <Route exact path="/image/filters">
+              <PageFilter />
             </Route>
             <Route path="/">
               <div>Opa! Erro 404!</div>

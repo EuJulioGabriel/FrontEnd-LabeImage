@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import { ContainerInfo, ContainerAlturaMinimo } from "../PageAllImages/StylePageAllImages"
+import {useHistory, useParams} from 'react-router-dom'
+import { ContainerAlturaMinimo } from "./StylePageImagesByCollection"
 import axios from 'axios'
+import CardImage from '../CardImage/CardImage'
 
 const url = "https://labeimage.herokuapp.com/image/"
 
-function CardImage(props) {
+function GetImagesByCollection(props) {
     const [images, setImages] = useState([])
+
+    const history = useHistory()
+    const pathParams = useParams()
+
+    useEffect(() => {
+        const token = window.localStorage.getItem("token")
+
+        if (token === null) {
+            history.push("/")
+        }
+    }, [history])
     
     const getImages = () => {
         const token = window.localStorage.getItem("token")
 
         axios
-        .get(`${url}image`, {
+        .get(`${url}collection/${pathParams.id}`, {
             headers:{
                 Authorization: token
             }
@@ -37,19 +50,10 @@ function CardImage(props) {
             )
         } else {
             return (
-                <ContainerAlturaMinimo>
-                    {images.map((image) => {
-                        return(
-                            <ContainerInfo key={image.id} onClick={() => props.openModalImage(image.id)}>
-                                <img src= {image.file}
-                                        width="100"
-                                        height="100">
-                                </img>
-                                <h2>{image.subtitle}</h2>
-                            </ContainerInfo>
-                        )
-                    })}
-                </ContainerAlturaMinimo>
+                <CardImage
+                    openModalImage={props.openModalImage} 
+                    images={images}
+                />
             )
         }
     }
@@ -61,4 +65,4 @@ function CardImage(props) {
     )
 }
 
-export default CardImage
+export default GetImagesByCollection

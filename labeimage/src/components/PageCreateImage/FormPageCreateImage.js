@@ -46,14 +46,18 @@ function FormPageCreateImage(props) {
                         </ContainerInput>
                         <ContainerInput>
                             <TextSignup>Coleção</TextSignup>
-                            <InputSignup 
-                                onChange={props.handleInputChange} 
+                                <select 
                                 name={"collection"} 
                                 value={props.form.collection} 
-                                placeholder={"Coleção"} 
-                                type={"text"} 
-                                required
-                            />
+                                onChange={props.handleInputChange} 
+                                required>
+                                    <option value="volvo">Nenhum selecionado</option>
+                                    {props.collections.map((collection) => {
+                                        return (
+                                            <option key={collection.id} value={collection.id}>{collection.title}</option>
+                                        )
+                                    })}
+                                </select>
                         </ContainerInput>
                         <ContainerInput>
                             <ButtonSignup>Enviar</ButtonSignup>

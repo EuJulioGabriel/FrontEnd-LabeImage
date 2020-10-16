@@ -32,3 +32,5 @@ http://labeimage.surge.sh/
 ![5](https://user-images.githubusercontent.com/65473269/96283600-d65dd100-0fb2-11eb-9be0-5177c369b9ee.png)
 ![6](https://user-images.githubusercontent.com/65473269/96283610-d8c02b00-0fb2-11eb-85b9-7b20fad1914e.png)
 ![7](https://user-images.githubusercontent.com/65473269/96283621-da89ee80-0fb2-11eb-9574-6758efa35c17.png)
+![8](https://user-images.githubusercontent.com/65473269/96283833-26d52e80-0fb3-11eb-905e-58c9c7bd91d3.png)
+![9](https://user-images.githubusercontent.com/65473269/96283839-28065b80-0fb3-11eb-8ab5-508393c6332d.png)

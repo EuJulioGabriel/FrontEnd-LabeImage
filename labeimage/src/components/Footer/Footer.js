@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
 const Rodape = styled.footer`
-    background-color: black;
-    color: white;
+    background-color: #292929;
+    color: #f5fffa;
     display: flex;
     align-items: center;
     width: 100%;

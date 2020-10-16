@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const ContainerModalImage = styled.div`
     position: fixed;
     top: 25vh;
-    left: 25vw;
-    width: 50%;
+    left: 13vw;
+    width: 70%;
     background-color: white;
     display: flex;
     justify-content: space-between;

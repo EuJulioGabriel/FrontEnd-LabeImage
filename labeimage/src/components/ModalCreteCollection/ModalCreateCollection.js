@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import useInput from '../../hooks/useInput'
-import { ContainerModalImage, CloseButton, Image, ContainerInfo, DateImage } from './StyleModalCreateCollection'
+import { ContainerModalImage, CloseButton } from './StyleModalCreateCollection'
 import axios from 'axios'
 import FormCreateCollection from './FormCreateCollection'
 
@@ -24,14 +24,16 @@ function ModalCreateCollection(props) {
         createCollections()
     }
 
+    const refreshPage= () => {
+        window.location.reload()
+    }
+
     const createCollections = () => {
         const body = {
             title: form.title,
             subtitle: form.subtitle,
             image: form.image
         }
-
-        console.log(body)
 
         const token = window.localStorage.getItem("token")
 
@@ -44,6 +46,7 @@ function ModalCreateCollection(props) {
         .then(() => {
             alert("Álbum criado com sucesso")
             resetInput()
+            refreshPage()
             props.closeModalCreateCollection()
         })
         .catch((error)=>{

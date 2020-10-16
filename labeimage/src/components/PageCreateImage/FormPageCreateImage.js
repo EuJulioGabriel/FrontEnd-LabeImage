@@ -1,19 +1,17 @@
 import React from 'react'
-import { ContainerPageSignup, ContainerSignUp, FormSignup,
-         ContainerInput, ButtonSignup, TextSignup,
-         ButtonBack, DescriptionPage, InputSignup } from '../PageSignup/StylePageSignup'
+import { ContainerPageCreateImage, ContainerCreateImage, FormCreateImage,
+         ContainerInput, ButtonCreateImage, TextCreateImage,
+         DescriptionPage, InputCreateImage, SelectCollection } from './StylePageCreateImage'
   
 function FormPageCreateImage(props) {
-
     return (
-        <ContainerPageSignup>
-            <ButtonBack onClick={props.goToPageAllImages}>Galeria</ButtonBack>
+        <ContainerPageCreateImage>
                 <DescriptionPage>Criar Imagem</DescriptionPage>
-                <ContainerSignUp>
-                    <FormSignup onSubmit={props.handleSave}>
+                <ContainerCreateImage>
+                    <FormCreateImage onSubmit={props.handleSave}>
                         <ContainerInput>
-                            <TextSignup>Subtítulo</TextSignup>
-                            <InputSignup
+                            <TextCreateImage>Subtítulo</TextCreateImage>
+                            <InputCreateImage
                                 onChange={props.handleInputChange}
                                 name={"subtitle"}
                                 value={props.form.subtitle} 
@@ -23,8 +21,8 @@ function FormPageCreateImage(props) {
                             />
                         </ContainerInput>
                         <ContainerInput>
-                            <TextSignup>Imagem</TextSignup>
-                            <InputSignup
+                            <TextCreateImage>Imagem</TextCreateImage>
+                            <InputCreateImage
                                 onChange={props.handleInputChange}
                                 name={"file"}
                                 value={props.form.file} 
@@ -34,8 +32,8 @@ function FormPageCreateImage(props) {
                             />
                         </ContainerInput>
                         <ContainerInput>
-                            <TextSignup>Tags</TextSignup>
-                            <InputSignup 
+                            <TextCreateImage>Tags</TextCreateImage>
+                            <InputCreateImage 
                                 onChange={props.handleInputChange} 
                                 name={"tags"} 
                                 value={props.form.tags} 
@@ -45,26 +43,27 @@ function FormPageCreateImage(props) {
                             />
                         </ContainerInput>
                         <ContainerInput>
-                            <TextSignup>Coleção</TextSignup>
-                                <select 
+                            <TextCreateImage>Coleção</TextCreateImage>
+                                <SelectCollection 
                                 name={"collection"} 
                                 value={props.form.collection} 
                                 onChange={props.handleInputChange} 
-                                required>
-                                    <option value="volvo">Nenhum selecionado</option>
+                                required
+                                >
+                                    <option value="">Selecione uma coleção</option>
                                     {props.collections.map((collection) => {
                                         return (
                                             <option key={collection.id} value={collection.id}>{collection.title}</option>
                                         )
                                     })}
-                                </select>
+                                </SelectCollection>
                         </ContainerInput>
                         <ContainerInput>
-                            <ButtonSignup>Enviar</ButtonSignup>
+                            <ButtonCreateImage>Enviar</ButtonCreateImage>
                         </ContainerInput>
-                    </FormSignup>
-                </ContainerSignUp>
-        </ContainerPageSignup>
+                    </FormCreateImage>
+                </ContainerCreateImage>
+        </ContainerPageCreateImage>
     )
 }
 

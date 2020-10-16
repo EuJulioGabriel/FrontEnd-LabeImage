@@ -1,29 +1,34 @@
 import styled from 'styled-components'
 
-export const ContainerSignUp = styled.div`
+export const ContainerFilter = styled.div`
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: #f5fffa;
 `
 
 export const ContainerInput = styled.div`
     height: 10vh;
-    display: flex;
-    flex-direction: column;
-`
-
-export const ContainerPageSignup = styled.div`
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
     background-color: #f5fffa;
 `
 
-export const InfoSignup = styled.div`
+export const ContainerPageFilter = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5fffa;
+`
+
+export const ContainerAllPageFilter = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5fffa;
+`
+
+export const InfoFilter = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -31,9 +36,13 @@ export const InfoSignup = styled.div`
     justify-content: space-around;
 `
 
-export const TextSignup = styled.label`
+export const TextFilter = styled.label`
+    display: grid;
+    align-self: end;
     font-size: 16px;
     font-weight: bold;
+    margin: 0px;
+    padding: 0px;
 `
 
 export const ButtonBack = styled.button`
@@ -47,7 +56,6 @@ export const ButtonBack = styled.button`
     outline: none;
     cursor: pointer;
     margin-left: 5vw;
-    background-color: #f5fffa;
 `
 
 export const ButtonPageCreateCollection = styled.button`
@@ -91,9 +99,12 @@ export const SelectCollection = styled.select`
     height: 2.5vw;
 `
 
-export const ButtonSignup = styled.button`
+export const ButtonFilter = styled.button`
+    display: grid;
+    grid-row: 2;
+    align-items: center;
     background-color: #ff4500;
-    width: 10vw;
+    width: 5vw;
     height: 5vh;
     border-style: none;
     border-radius: 2px;
@@ -101,26 +112,25 @@ export const ButtonSignup = styled.button`
     font-weight: bold;
 `
 
-export const FormSignup = styled.form`
+export const FormFilter = styled.form`
     width: 100%;
-    height: 60vh;
+    height: 10vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
 `
 
 export const DescriptionPage = styled.h1`
     width: 100%;
-    height: 5vh;
-    margin: 0;
+    height: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
-export const InputSignup = styled.input`
-    width: 30vw;
+export const InputFilter = styled.input`
+    width: 10vw;
     height: 4vh;
+    margin-right: 1vw;
 `

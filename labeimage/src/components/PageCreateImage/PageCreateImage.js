@@ -3,51 +3,16 @@ import axios from 'axios';
 import useInput from '../../hooks/useInput'
 import { useHistory } from 'react-router-dom'
 import FormPageCreateImage from './FormPageCreateImage'
-import ModalCreateCollection from '../ModalCreteCollection/ModalCreateCollection';
 
 const url = "https://labeimage.herokuapp.com/image/"
 const urlTwo = "https://labeimage.herokuapp.com/collection/"
   
 function PageSignup() {
-    const { form, onChange, resetInput } = useInput({
-        subtitle: "",
-        file: "",
-        tags: "",
-        collection: "",
-    })
-
     const [collections, setCollections] = useState([])
-    const [modalCreateCollection, setModalCreateCollection] = useState(false)
-
-    const history = useHistory()
-
-    useEffect(() => {
-        const token = window.localStorage.getItem("token")
-        
-        if (token === null) {
-            history.push("/")
-        }
-        
-    }, [history])
 
     useEffect(() => {
         getAllCollections()
     }, [])
-
-    const handleInputChange = event => {
-        const { name, value} = event.target;
-    
-        onChange(name, value);
-    }
-
-    const handleSave = (event) => {
-        event.preventDefault()
-        onClickSignup()
-    }
-
-    const goToPageAllImages = () => {
-        history.push("/image")
-    }
 
     const getAllCollections = () => {
         const token = window.localStorage.getItem("token")
@@ -64,6 +29,35 @@ function PageSignup() {
         .catch((error)=>{
             alert(error.message)
         })        
+    }
+
+    const { form, onChange, resetInput } = useInput({
+        subtitle: "",
+        file: "",
+        tags: "",
+        collection: "",
+    })
+
+    const history = useHistory()
+
+    useEffect(() => {
+        const token = window.localStorage.getItem("token")
+        
+        if (token === null) {
+            history.push("/")
+        }
+        
+    }, [history])
+
+    const handleInputChange = event => {
+        const { name, value} = event.target;
+    
+        onChange(name, value);
+    }
+
+    const handleSave = (event) => {
+        event.preventDefault()
+        onClickSignup()
     }
 
     const addImageToCollection = (idImage, idCollection) => {
@@ -112,35 +106,14 @@ function PageSignup() {
         })
     }
 
-    const openModalCreateCollection = () => {
-        setModalCreateCollection(true)
-    }
-
-    const closeModalCreateCollection = () => {
-        setModalCreateCollection(false)
-    }
-
-    const showModalCreateCollection = () => {
-        if (modalCreateCollection) {
-            return (
-                <ModalCreateCollection
-                    closeModalCreateCollection={closeModalCreateCollection} 
-                />
-            )
-        }
-    }
-
     return (
         <div>
-            <button onClick={() => openModalCreateCollection()}>Criar álbum</button>
             <FormPageCreateImage 
-                goToPageAllImages={goToPageAllImages}
                 handleSave={handleSave}
                 handleInputChange={handleInputChange}
                 form={form}
                 collections={collections}
             />
-            {showModalCreateCollection()}
         </div>
     )
 }

@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import useInput from '../../hooks/useInput'
 import { useHistory } from 'react-router-dom'
-import ModalCreateCollection from '../ModalCreteCollection/ModalCreateCollection';
+import ModalImage from '../ModalImage/ModalImage'
+import FormPageFilter from './FormPageFilter'
+import CardImage from '../CardImage/CardImage'
+import { ContainerAlturaMinimo } from "../PageAllImages/StylePageAllImages"
+import { DescriptionPage } from '../PageCreateImage/StylePageCreateImage'
+import { ContainerAllPageFilter } from './StylePageFilter'
 
-const url = "http://localhost:3003/image/"
+const url = "https://labeimage.herokuapp.com/image/"
   
-function PageFilter() {
-    const { form, onChange, resetInput } = useInput({
+function PageFilter(props) {
+    const { form, onChange } = useInput({
         date: "",
         author: "",
         collection: "",
@@ -15,7 +20,8 @@ function PageFilter() {
     })
 
     const [images, setImages] = useState([])
-    const [modalCreateCollection, setModalCreateCollection] = useState(false)
+    const [modalImage, setModalImage] = useState(false)
+    const [idImage, setIdImage] = useState("")
 
     const history = useHistory()
 
@@ -47,17 +53,10 @@ function PageFilter() {
     }
 
     const getImagesByFilter = () => {
-        const body = {
-            "date": `${form.date}`,
-            "author": `${form.author}`,
-            "collection": `${form.collection}`,
-            "tags": `${form.tags}`,
-        }
-
         const token = window.localStorage.getItem("token")
 
         axios
-        .get(`${url}filters`, body, {
+        .get(`${url}filters?date=${form.date}&author=${form.author}&collection=${form.collection}&tags=${form.tags}`, {
             headers:{
                 Authorization: token
             }
@@ -66,47 +65,59 @@ function PageFilter() {
             setImages(response.data.message)
         })
         .catch((error)=>{
-            console.log(error)
             alert(error.message)
         })        
     }
 
-    const openModalCreateCollection = () => {
-        setModalCreateCollection(true)
+    const openModalImage = (Identificador) => {
+        setIdImage(Identificador)
+        setModalImage(true)
     }
 
-    const closeModalCreateCollection = () => {
-        setModalCreateCollection(false)
+    const closeModalImage = () => {
+        setModalImage(false)
     }
 
-    const showModalCreateCollection = () => {
-        if (modalCreateCollection) {
+    const showModalImage = () => {
+        if (modalImage) {
             return (
-                <ModalCreateCollection
-                    closeModalCreateCollection={closeModalCreateCollection} 
+                <ModalImage
+                    idImage={idImage}
+                    closeScreenEdit={closeModalImage} 
+                />
+            )
+        }
+    }
+
+    const showImages = () => {
+        if(!images.length) {
+            return (
+                <ContainerAlturaMinimo>
+                    <p>Você não possui nenhuma imagem ainda</p>
+                </ContainerAlturaMinimo>
+            )
+        } else {
+            return (
+                <CardImage
+                    openModalImage={openModalImage} 
+                    images={images}
                 />
             )
         }
     }
 
     return (
-        <div>
-            <button onClick={() => openModalCreateCollection()}>Criar álbum</button>
-            {images.map((image) => {
-                return(
-                    <div key={image.id}>
-                        {}
-                    </div>
-                )
-            })}
-            {/* <FormPageCreateImage 
+        <ContainerAllPageFilter>
+            <DescriptionPage>Busca</DescriptionPage>
+            {showModalImage()}
+            <FormPageFilter 
                 goToPageAllImages={goToPageAllImages}
                 handleSave={handleSave}
                 handleInputChange={handleInputChange}
                 form={form}
             />
-            {showModalCreateCollection()} */}
-        </div>
+            {showImages()}
+        </ContainerAllPageFilter>
     )
 }
 

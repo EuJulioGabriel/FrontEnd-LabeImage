@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ContainerSignUp = styled.div`
+export const ContainerCreateImage = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,16 +14,16 @@ export const ContainerInput = styled.div`
     flex-direction: column;
 `
 
-export const ContainerPageSignup = styled.div`
+export const ContainerPageCreateImage = styled.div`
     width: 100%;
-    height: 80vh;
+    height: 70vh;
+    background-color: #f5fffa;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #f5fffa;
 `
 
-export const InfoSignup = styled.div`
+export const InfoCreateImage = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ export const InfoSignup = styled.div`
     justify-content: space-around;
 `
 
-export const TextSignup = styled.label`
+export const TextCreateImage = styled.label`
     font-size: 16px;
     font-weight: bold;
 `
@@ -47,7 +47,6 @@ export const ButtonBack = styled.button`
     outline: none;
     cursor: pointer;
     margin-left: 5vw;
-    background-color: #f5fffa;
 `
 
 export const ButtonPageCreateCollection = styled.button`
@@ -91,7 +90,7 @@ export const SelectCollection = styled.select`
     height: 2.5vw;
 `
 
-export const ButtonSignup = styled.button`
+export const ButtonCreateImage = styled.button`
     background-color: #ff4500;
     width: 10vw;
     height: 5vh;
@@ -101,7 +100,7 @@ export const ButtonSignup = styled.button`
     font-weight: bold;
 `
 
-export const FormSignup = styled.form`
+export const FormCreateImage = styled.form`
     width: 100%;
     height: 60vh;
     display: flex;
@@ -113,14 +112,15 @@ export const FormSignup = styled.form`
 export const DescriptionPage = styled.h1`
     width: 100%;
     height: 5vh;
-    margin: 0;
+    padding: 0;
+    background-color: #f5fffa;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
-export const InputSignup = styled.input`
+export const InputCreateImage = styled.input`
     width: 30vw;
     height: 4vh;
 `

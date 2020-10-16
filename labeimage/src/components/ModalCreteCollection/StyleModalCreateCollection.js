@@ -2,12 +2,13 @@ import styled from 'styled-components'
 
 export const ContainerModalImage = styled.div`
     position: fixed;
-    top: 25vh;
+    top: 15vh;
     left: 25vw;
     width: 50%;
     background-color: white;
     display: flex;
     justify-content: space-between;
+    background-color: #f5fffa;
 `
 
 export const CloseButton = styled.button`

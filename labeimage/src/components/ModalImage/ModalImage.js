@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ContainerModalImage, CloseButton, Image, ContainerInfo, DateImage } from './StyleModalImage'
 import axios from 'axios'
+import AddImageToCollection from '../AddImageToCollection/AddImageToCollection'
 
 const url = "https://labeimage.herokuapp.com/image/"
 
@@ -23,6 +24,7 @@ function ModalImage(props) {
             setImage(response.data.message)
         })
         .catch((error)=>{
+            console.log(error)
             alert(error.message)
         })
     }
@@ -31,13 +33,16 @@ function ModalImage(props) {
         <ContainerModalImage>
             <DateImage>
                 <h2>Título: {image.subtitle}</h2>
-                <p>Imagem: {image.name}</p>
+                <p>Autor: {image.name}</p>
                 <p>Criado em: {image.createdAt}</p>
                 <p>Tags: {image.tags}</p>
             </DateImage>
             <ContainerInfo>
                 <Image src= {image.file}></Image>
             </ContainerInfo>
+            <AddImageToCollection 
+                idImage={props.idImage}
+            />
             <CloseButton onClick={() => props.closeScreenEdit()}>X</CloseButton>
         </ContainerModalImage>
     )

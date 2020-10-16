@@ -11,6 +11,7 @@ export const ContainerLogin = styled.div`
 
 export const ContainerGeneralPageLogin = styled.div`
     display: flex;
+    background-color: #f5fffa;
 `
 
 export const FormLogin = styled.form`

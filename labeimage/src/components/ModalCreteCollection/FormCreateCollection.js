@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContainerPageSignup, ContainerSignUp, FormSignup,
          ContainerInput, ButtonSignup, TextSignup,
-         ButtonBack, DescriptionPage, InputSignup } from '../PageSignup/StylePageSignup'
+         DescriptionPage, InputSignup } from '../PageSignup/StylePageSignup'
   
 function FormCreateCollection(props) {
     return (
@@ -15,7 +15,7 @@ function FormCreateCollection(props) {
                             onChange={props.handleInputChange}
                             name={"title"}
                             value={props.form.title} 
-                            placeholder={"Título da image"}
+                            placeholder={"Título do álbum"}
                             type={"text"} 
                             required
                         />
@@ -26,7 +26,7 @@ function FormCreateCollection(props) {
                             onChange={props.handleInputChange}
                             name={"subtitle"}
                             value={props.form.subtitle} 
-                            placeholder={"Descrição da imagem"}
+                            placeholder={"Descrição do álbum"}
                             type={"text"} 
                             required
                         />
@@ -37,7 +37,7 @@ function FormCreateCollection(props) {
                             onChange={props.handleInputChange} 
                             name={"image"} 
                             value={props.form.image} 
-                            placeholder={"Link da imagem"} 
+                            placeholder={"Link da imagem de capa do álbum"} 
                             type={"text"}
                         />
                     </ContainerInput>

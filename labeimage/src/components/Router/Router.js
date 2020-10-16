@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import Header from "../Header/Header"
+import NavBar from '../NavBar/NavBar'
 import PageSignup from '../PageSignup/PageSignup'
 import PageLogin from '../PageLogin/PageLogin'
 import PageCreateImage from '../PageCreateImage/PageCreateImage'
@@ -15,6 +16,7 @@ const Router = () => {
     return (
       <BrowserRouter>
           <Header />
+          <NavBar />
           <Switch>
             <Route exact path="/">
               <PageLogin />

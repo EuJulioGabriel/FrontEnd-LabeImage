@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import ModalImage from '../ModalImage/ModalImage'
-import GetAllImages from '../PageAllImages/GetAllImages'
-import { ButtonCreateImage, ContainerPageAllImage } from '../PageAllImages/StylePageAllImages'
+import { ContainerPageAllImage } from '../PageAllImages/StylePageAllImages'
+import { DescriptionPage } from '../PageCreateImage/StylePageCreateImage'
 import CardCollection from './CardCollection'
 
 const url = "https://labeimage.herokuapp.com/collection/"
@@ -43,17 +42,13 @@ function PageAllCollections() {
         })        
     }
 
-    const goToPageCreateImage = () => {
-        history.push("/createimage")
-    }
-
     const getImagesById = (Identificador) => {
         history.push("/image/collection/" + Identificador)
     }
 
     return (
         <ContainerPageAllImage>
-            <ButtonCreateImage onClick={goToPageCreateImage}>Inserir Imagem</ButtonCreateImage>
+            <DescriptionPage>Álbuns</DescriptionPage>
             <CardCollection 
                 collections={collections}
                 getImagesById={getImagesById}

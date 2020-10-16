@@ -2,7 +2,7 @@
 
 ### O que funciona
 
--Tela de Cadastro.
+-Tela de Cadastro. <br />
 -Tela de Login.
 -Tela de Criação de Imagem.
 -Tela para ver todas as imagens do usuário.

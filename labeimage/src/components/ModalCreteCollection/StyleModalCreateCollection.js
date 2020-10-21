@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerModalImage = styled.div`
     position: fixed;
-    top: 15vh;
+    top: 18vh;
     left: 25vw;
     width: 50%;
     background-color: white;

@@ -1,26 +1,25 @@
 import styled from 'styled-components'
 
 export const ContainerInfo = styled.div`
-    width: 10%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
     border: 2px solid black;
+    border-radius: 2vw;
     margin: 2vh 2vw;
     padding: 20px;
 `
 
 export const ContainerAlturaMinimo = styled.div`
     width: 100%;
-    min-height: 50vh;
+    min-height: 52vh;
     background-color: #f5fffa;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const ContainerPageAllImage = styled.div`
@@ -46,6 +45,7 @@ export const ButtonCreateImage = styled.button`
 `
 
 export const ContainerCardImage = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,14 +59,10 @@ export const CabecalhoTitle = styled.h2`
     justify-self: flex-end;
 ` 
 
-export const ButtonShowModalUpdateCollectionCover = styled.button`
-    width: 10vw;
-    height: 3vw;
-    background-color: #ff4500;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    border-style: none;
-    outline: none;
-    cursor: pointer;
+export const HeaderCardFeed = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 `

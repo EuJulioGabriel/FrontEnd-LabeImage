@@ -5,9 +5,8 @@ import { useHistory } from 'react-router-dom'
 import ModalImage from '../ModalImage/ModalImage'
 import FormPageFilter from './FormPageFilter'
 import CardImage from '../CardImage/CardImage'
-import { ContainerAlturaMinimo } from "../PageAllImages/StylePageAllImages"
 import { DescriptionPage } from '../PageCreateImage/StylePageCreateImage'
-import { ContainerAllPageFilter } from './StylePageFilter'
+import { ContainerAllPageFilter, ContainerAlturaMinimo } from './StylePageFilter'
 
 const url = "https://labeimage.herokuapp.com/image/"
   

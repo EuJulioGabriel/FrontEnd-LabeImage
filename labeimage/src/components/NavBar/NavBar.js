@@ -26,6 +26,10 @@ function NavBar() {
         history.push("/collection")
     }
 
+    const goToPageFeed = () => {
+        history.push("/feed")
+    }
+
     const openModalCreateCollection = () => {
         setModalCreateCollection(true)
     }
@@ -55,6 +59,7 @@ function NavBar() {
             return (
                 <ContainerPageSignup>
                     <ContainerNavBar>
+                        <ButtonBack onClick={goToPageFeed}>Feed</ButtonBack>
                         <ButtonPageCreateImage onClick={goToPageCreateImage}>Criar Imagem</ButtonPageCreateImage>
                         <ButtonBack onClick={goToPageAllImages}>Galeria</ButtonBack>
                         <ButtonModalCreateCollection onClick={openModalCreateCollection}>Criar Álbum</ButtonModalCreateCollection>

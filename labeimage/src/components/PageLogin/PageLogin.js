@@ -18,7 +18,7 @@ function PageLogin() {
         const token = window.localStorage.getItem("token")
 
         if (token !== null) {
-            history.replace("/createimage")
+            history.replace("/feed")
         }
     }, [])
 
@@ -38,11 +38,12 @@ function PageLogin() {
             password: form.senha
         }
 
-        axios.post(`${baseUrl}login`, body)
+        axios
+        .post(`${baseUrl}login`, body)
         .then((response) => {
             window.localStorage.setItem("token", response.data.token)
             resetInput()
-            history.replace("/createimage")
+            history.replace("/feed")
         })
         .catch((error) => {
             alert(error)

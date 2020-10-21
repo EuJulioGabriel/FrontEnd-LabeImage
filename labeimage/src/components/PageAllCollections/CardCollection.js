@@ -43,8 +43,8 @@ function CardCollection(props) {
                 <ContainerAlturaMinimo>
                     {collections.map((collection) => {
                         return(
-                                <ContainerInfo>
-                                    <ContainerCardImage key={collection.id} onClick={() => props.getImagesById(collection.id)}>
+                                <ContainerInfo key={collection.id}>
+                                    <ContainerCardImage onClick={() => props.getImagesById(collection.id)}>
                                         <img src= {collection.image}
                                             alt="Este álbum não possui uma imagem de capa"
                                             width="100"

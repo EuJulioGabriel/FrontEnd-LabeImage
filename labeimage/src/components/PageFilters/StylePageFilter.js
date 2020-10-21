@@ -5,6 +5,17 @@ export const ContainerFilter = styled.div`
     background-color: #f5fffa;
 `
 
+export const ContainerAlturaMinimo = styled.div`
+    width: 100%;
+    min-height: 30vh;
+    background-color: #f5fffa;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+`
+
 export const ContainerInput = styled.div`
     height: 10vh;
     display: grid;

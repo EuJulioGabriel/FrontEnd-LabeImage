@@ -8,11 +8,11 @@ export const ContainerPageSignup = styled.div`
 `
 
 export const ContainerNavBar = styled.div`
-    background-color: Black;
+    background-color: black;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 `
 
 export const ButtonPageCreateImage = styled.button`
@@ -25,7 +25,6 @@ export const ButtonPageCreateImage = styled.button`
     border-style: none;
     outline: none;
     cursor: pointer;
-    margin-left: 24vw;
 `
 
 export const ButtonModalCreateCollection = styled.button`
@@ -74,7 +73,6 @@ export const ButtonPageFilters = styled.button`
     border-style: none;
     outline: none;
     cursor: pointer;
-    margin-right: 24vw;
 `
 
 export const ButtonPageCollection = styled.button`

@@ -16,7 +16,6 @@ export const ContainerInput = styled.div`
 
 export const ContainerPageCreateImage = styled.div`
     width: 100%;
-    height: 70vh;
     background-color: #f5fffa;
     display: flex;
     flex-direction: column;
@@ -102,7 +101,6 @@ export const ButtonCreateImage = styled.button`
 
 export const FormCreateImage = styled.form`
     width: 100%;
-    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

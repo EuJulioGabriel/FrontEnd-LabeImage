@@ -42,9 +42,9 @@ function PageSignup() {
         axios
         .post(`${url}signup`, body)
         .then(response=>{
-            history.push("/feed")
-            resetInput()
             window.localStorage.setItem("token", response.data.token)
+            resetInput()
+            history.push("/feed")
         })
         .catch((error)=>{
             alert(error.message)

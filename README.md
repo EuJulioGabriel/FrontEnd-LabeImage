@@ -1,47 +1,35 @@
-### LabeImage
+# Labefy
 
-### O que funciona
+## Aplicação com funções semelhantes ao Spotify
 
--Tela de Cadastro. <br />
--Tela de Login. <br />
--Tela de Criação de Imagem. <br />
--Tela para ver todas as imagens do usuário. <br />
--Modal para ver detalhes de uma imagem. <br />
--8 Testes automatizados. <br />
--Modal de criação de álbum. <br />
--Adiciona imagem a um álbum. <br />
--Tela de exibição de todos os álbuns. <br />
--Tela de busca por critérios. <br />
--Barra de busca de usuários fixada abaixo da barra de navegação. <br />
--Tela de perfil do usuário e botão para seguir/deixar de seguir o usuário. <br />
--Tela de feed. <br />
+## Stack
+Esse é um projeto de Frontend Web feito utilizando ReactJS, HTML e CSS; 
+e o npm como gerenciador de pacotes do NodeJS.
+Sobre a divisão dos arquivos, há apenas dois setores. O setor de `components` são 
+os componentes em si do meu projeto (Router, PageSignup, PageSearch, PageProfile, PageLogin, PageImagesByCollection, PageFilters, PageFeed, PageCreateImage, PageAllImages, PageAllCollections, NavBar, ModalUpdateCollectionCover, ModalImage, ModalCreateCollection, Header, Footer, CardImage, BarSearch, AddImageToCollection) e o setor de hooks que possui apenas o controle do estado dos inputs do projeto.
 
+## Sobre
+Esse foi um dos primeiros projetos que fiz em React.
+O projeto consiste em catorze páginas, que simulam o comportamento de uma rede social de imagens. A primeira página, é a página inicial, que possui duas áreas, a primeira área, é onde o usuário pode fazer o seu login, bastando apenas inserir o seu email e senha corretamente e clicando no botão de login e será redirecionado para a pagina do seu feed, e a segunda área consiste na área de transferência para a pagina de cadastro. A página de cadastro é onde o usuário poderá fornecer as informações solicitadas para realizar o cadastro, e os envia clicando no botão de cadastrar, se as informações forem inseridas corretamente, o usuário será cadastrado e redirecionado para a página do seu feed, e também possui no topo da página um botão para voltar a página inicial. A página de feed possui um barra para realizar buscas de usuários e também as últimas imagens postadas pelos usuários que o usuário segue, clicando numa postagem dos usuário você é redirecionado para a página de perfil do usuário. A página de criação de imagem é onde você pode postar a imagem que você deseja compartilhar com os seus seguidores, junto com a legenda e o álbum que deseja inseri-la bem como suas tags. A página de galeria exibe todas as imagens que você inseriu no seu perfil, clicando em uma das imagens, você abre um modal, onde pode ver a imagem em tamanho maior, juntos com as outras informações e pode também inseri-la em um álbum, caso não tenha feito isso quando postou. A página de criação de um álbum, serve para criar um álbum, onde você insere o nome do álbum, descrição e o link da imagem de capa do seu álbum e quando clicado o botão para criar o álbum, o modal se fecha, caso o álbum seja criado com sucesso. A página de álbuns mostra todos os álbuns criados pelo usuário e permite a alteração de capa do álbum, para isto, basta clicar no botão de atualizar capa do álbum, que será aberto um modal, onde você poderá inserir o link da nova imagem de capa e clicando no botão de atualizar o modal é fechado em caso de a modificação ser alterado com sucesso. A página de busca serve para você poder buscar as imagens que você inseriu, com alguns critérios. A página de perfil do usuário é onde você abre o perfil do usuário e você pode ver os álbuns e imagens criados por outros usuários e pode seguir e deixar de seguir o usuário.
 
-### O que não funciona
+Há integrações com uma API externa nesse caso.
 
--Upload de imagem de um arquivo do computador. <br />
--Deleter uma imagem. <br />
--Adicionar localização. <br />
--Adicionar localização. <br />
--Chat na aplicação. <br />
+## Deploy com Surge
 
-### Link do Surge
+<a href="http://labeimage.surge.sh/">LabeImage</a>
 
-http://labeimage.surge.sh/
+## Instruções para rodar
+Por ser um projeto com ReactJS, há a necessidade do NodeJS. Com ele em 
+sua máquina, basta abrir o terminal e navegar até o repositório clonado e 
+rodar:
 
-### Imagens
+1. `git clone https://github.com/EuJulioGabriel/Labefy.git`
+2. `npm install` para instalar todas as dependências;
+3. `npm run start` para rodar localmente o projeto
+4. `npm run build` para gerar uma versão estática do projeto 
+(que ficará na pasta `build`)
 
-![1](https://user-images.githubusercontent.com/65473269/96283568-ca720f00-0fb2-11eb-9ed3-6f4fd08ba86b.png)
-![2](https://user-images.githubusercontent.com/65473269/96283582-cf36c300-0fb2-11eb-8e2b-87d796b5520c.png)
-![3](https://user-images.githubusercontent.com/65473269/96283587-d1991d00-0fb2-11eb-97ab-861a4c0a1ad0.png)
-![4](https://user-images.githubusercontent.com/65473269/96283597-d3fb7700-0fb2-11eb-8c62-9969bbad3bd8.png)
-![5](https://user-images.githubusercontent.com/65473269/96283600-d65dd100-0fb2-11eb-9be0-5177c369b9ee.png)
-![6](https://user-images.githubusercontent.com/65473269/96283610-d8c02b00-0fb2-11eb-85b9-7b20fad1914e.png)
-![7](https://user-images.githubusercontent.com/65473269/96283621-da89ee80-0fb2-11eb-9574-6758efa35c17.png)
-![8](https://user-images.githubusercontent.com/65473269/96283833-26d52e80-0fb3-11eb-905e-58c9c7bd91d3.png)
-![9](https://user-images.githubusercontent.com/65473269/96283839-28065b80-0fb3-11eb-8ab5-508393c6332d.png)
-![1](https://user-images.githubusercontent.com/65473269/97028169-22b88c00-1532-11eb-9353-1ca758e01cb5.png)
-![2](https://user-images.githubusercontent.com/65473269/97028170-23e9b900-1532-11eb-9a98-c38e679635ff.png)
-![3](https://user-images.githubusercontent.com/65473269/97028174-251ae600-1532-11eb-89a9-702dc0feac7d.png)
-![4](https://user-images.githubusercontent.com/65473269/97028181-264c1300-1532-11eb-811b-cdbc9c520ddb.png)
-![5](https://user-images.githubusercontent.com/65473269/97028186-2815d680-1532-11eb-8654-8c53586eaf0d.png)
+## Contato
+Julio Gabriel<br>
+juliogabriel@outlook.com<br>
+<a href="https://www.linkedin.com/in/eujuliogabriel/">Linkedin</a>

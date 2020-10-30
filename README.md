@@ -1,6 +1,6 @@
-# Labefy
+# LabeImage
 
-## Aplicação com funções semelhantes ao Spotify
+## Aplicação com funções semelhantes a uma rede social de imagens
 
 ## Stack
 Esse é um projeto de Frontend Web feito utilizando ReactJS, HTML e CSS; 
@@ -23,7 +23,7 @@ Por ser um projeto com ReactJS, há a necessidade do NodeJS. Com ele em
 sua máquina, basta abrir o terminal e navegar até o repositório clonado e 
 rodar:
 
-1. `git clone https://github.com/EuJulioGabriel/Labefy.git`
+1. `git clone https://github.com/EuJulioGabriel/FrontEnd-LabeImage.git`
 2. `npm install` para instalar todas as dependências;
 3. `npm run start` para rodar localmente o projeto
 4. `npm run build` para gerar uma versão estática do projeto 

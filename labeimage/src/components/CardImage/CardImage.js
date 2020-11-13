@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { ContainerInfo, ContainerAlturaMinimo, ContainerCardImage, CabecalhoTitle } from "../PageAllImages/StylePageAllImages"
+import { ContainerAlturaMinimo } from './StyleCardImage'
+import { ContainerInfo, ContainerCardImage, CabecalhoTitle } from "../PageAllImages/StylePageAllImages"
 
 function CardImage(props) {
     const [images, setImages] = useState([])
